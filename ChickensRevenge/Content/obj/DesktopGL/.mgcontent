@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Profile>Reach</Profile>
+  <Platform>DesktopGL</Platform>
+  <Config />
+  <SourceFiles>
+    <File>/home/gfp/Documents/PERSO/projets/test/Monogame/HelloWorld/HelloWorld/Content/caisse.png</File>
+    <File>/home/gfp/Documents/PERSO/projets/test/Monogame/HelloWorld/HelloWorld/Content/herbe.png</File>
+    <File>/home/gfp/Documents/PERSO/projets/test/Monogame/HelloWorld/HelloWorld/Content/poule.png</File>
+    <File>/home/gfp/Documents/PERSO/projets/test/Monogame/HelloWorld/HelloWorld/Content/renard.png</File>
+    <File>/home/gfp/Documents/PERSO/projets/test/Monogame/HelloWorld/HelloWorld/Content/wall.png</File>
+  </SourceFiles>
+</SourceFileCollection>
