@@ -4,10 +4,14 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>/home/gfp/Documents/PERSO/projets/test/Monogame/HelloWorld/HelloWorld/Content/caisse.png</File>
-    <File>/home/gfp/Documents/PERSO/projets/test/Monogame/HelloWorld/HelloWorld/Content/herbe.png</File>
-    <File>/home/gfp/Documents/PERSO/projets/test/Monogame/HelloWorld/HelloWorld/Content/poule.png</File>
-    <File>/home/gfp/Documents/PERSO/projets/test/Monogame/HelloWorld/HelloWorld/Content/renard.png</File>
-    <File>/home/gfp/Documents/PERSO/projets/test/Monogame/HelloWorld/HelloWorld/Content/wall.png</File>
+    <File>/home/gfp/Documents/PERSO/projets/ChickensRevenge/ChickensRevenge/ChickensRevenge/Content/caisse.png</File>
+    <File>/home/gfp/Documents/PERSO/projets/ChickensRevenge/ChickensRevenge/ChickensRevenge/Content/herbe.png</File>
+    <File>/home/gfp/Documents/PERSO/projets/ChickensRevenge/ChickensRevenge/ChickensRevenge/Content/poule.png</File>
+    <File>/home/gfp/Documents/PERSO/projets/ChickensRevenge/ChickensRevenge/ChickensRevenge/Content/renard.png</File>
+    <File>/home/gfp/Documents/PERSO/projets/ChickensRevenge/ChickensRevenge/ChickensRevenge/Content/wall.png</File>
+    <File>/home/gfp/Documents/PERSO/projets/ChickensRevenge/ChickensRevenge/ChickensRevenge/Content/cross.png</File>
+    <File>/home/gfp/Documents/PERSO/projets/ChickensRevenge/ChickensRevenge/ChickensRevenge/Content/egg.png</File>
+    <File>/home/gfp/Documents/PERSO/projets/ChickensRevenge/ChickensRevenge/ChickensRevenge/Content/FontBig.spritefont</File>
+    <File>/home/gfp/Documents/PERSO/projets/ChickensRevenge/ChickensRevenge/ChickensRevenge/Content/FontSmall.spritefont</File>
   </SourceFiles>
 </SourceFileCollection>

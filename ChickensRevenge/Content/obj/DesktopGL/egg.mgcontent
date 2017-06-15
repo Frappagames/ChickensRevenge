@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>/home/gfp/Documents/PERSO/projets/ChickensRevenge/ChickensRevenge/ChickensRevenge/Content/caisse.png</SourceFile>
-  <SourceTime>2017-05-26T11:49:36+02:00</SourceTime>
-  <DestFile>/home/gfp/Documents/PERSO/projets/ChickensRevenge/ChickensRevenge/ChickensRevenge/Content/bin/DesktopGL/caisse.xnb</DestFile>
-  <DestTime>2017-06-15T13:07:35+02:00</DestTime>
+  <SourceFile>/home/gfp/Documents/PERSO/projets/ChickensRevenge/ChickensRevenge/ChickensRevenge/Content/egg.png</SourceFile>
+  <SourceTime>2017-06-15T10:57:38+02:00</SourceTime>
+  <DestFile>/home/gfp/Documents/PERSO/projets/ChickensRevenge/ChickensRevenge/ChickensRevenge/Content/bin/DesktopGL/egg.xnb</DestFile>
+  <DestTime>2017-06-15T13:09:29+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-05-19T11:30:39+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
