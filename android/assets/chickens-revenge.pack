@@ -1,0 +1,103 @@
+
+chickens-revenge.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+title
+  rotate: false
+  xy: 1, 453
+  size: 583, 54
+  orig: 583, 54
+  offset: 0, 0
+  index: -1
+btnPlayOver
+  rotate: false
+  xy: 1, 149
+  size: 300, 302
+  orig: 300, 302
+  offset: 0, 0
+  index: -1
+btnPlay
+  rotate: false
+  xy: 303, 149
+  size: 300, 302
+  orig: 300, 302
+  offset: 0, 0
+  index: -1
+btnSoundOn
+  rotate: false
+  xy: 1, 19
+  size: 127, 128
+  orig: 127, 128
+  offset: 0, 0
+  index: -1
+btnExitOver
+  rotate: false
+  xy: 130, 19
+  size: 127, 128
+  orig: 127, 128
+  offset: 0, 0
+  index: -1
+btnSoundOff
+  rotate: false
+  xy: 259, 19
+  size: 127, 128
+  orig: 127, 128
+  offset: 0, 0
+  index: -1
+btnExit
+  rotate: false
+  xy: 388, 19
+  size: 127, 128
+  orig: 127, 128
+  offset: 0, 0
+  index: -1
+grass
+  rotate: false
+  xy: 586, 491
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+cross
+  rotate: false
+  xy: 1, 1
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+fox
+  rotate: false
+  xy: 517, 131
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+egg
+  rotate: false
+  xy: 586, 473
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+wall
+  rotate: false
+  xy: 604, 491
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+box
+  rotate: false
+  xy: 19, 1
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+chicken
+  rotate: false
+  xy: 517, 113
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
