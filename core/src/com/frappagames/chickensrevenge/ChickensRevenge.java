@@ -2,7 +2,7 @@ package com.frappagames.chickensrevenge;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.frappagames.chickensrevenge.Screens.SplashScreen;
+import com.frappagames.chickensrevenge.Screens.GameScreen;
 import com.frappagames.chickensrevenge.Tools.Assets;
 import com.frappagames.chickensrevenge.Tools.Settings;
 
@@ -13,6 +13,7 @@ public class ChickensRevenge extends Game {
     public static final int TILE_SIZE = 16;
     public static final int MAP_SIZE = 23;
     public static final int DRAW_OFFSET = 0;
+	public enum Direction { LEFT, RIGHT, UP, DOWN }
 	
 	@Override
 	public void create () {
@@ -20,7 +21,8 @@ public class ChickensRevenge extends Game {
 
 		Assets.load();
 		Settings.load();
-		setScreen(new SplashScreen(this));
+		setScreen(new GameScreen(this));
+//		setScreen(new SplashScreen(this));
 	}
 
 	@Override

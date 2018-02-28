@@ -3,8 +3,16 @@ package com.frappagames.chickensrevenge.Tools;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.frappagames.chickensrevenge.ChickensRevenge;
 
+import java.awt.Point;
+import java.util.ArrayList;
+
 public class Level {
     private char[] map;
+
+    public static final char WALL_VALUE = '1';
+    public static final char BOX_VALUE = '2';
+    public static final char EMPTY_VALUE = '0';
+
     public enum Direction { LEFT, RIGHT, UP, DOWN }
 
     private Direction direction;
@@ -21,7 +29,7 @@ public class Level {
         int i = 0;
         for (char c : map) {
             int x = (i % ChickensRevenge.MAP_SIZE) * ChickensRevenge.TILE_SIZE + ChickensRevenge.DRAW_OFFSET;
-            int y = ((int) Math.ceil(i / ChickensRevenge.MAP_SIZE)) * ChickensRevenge.TILE_SIZE;
+            int y = (ChickensRevenge.MAP_SIZE - 1 - ((int) Math.ceil(i / ChickensRevenge.MAP_SIZE))) * ChickensRevenge.TILE_SIZE;
 
             switch (c) {
                 case '1' :
@@ -36,6 +44,68 @@ public class Level {
             }
 
             i++;
+        }
+    }
+
+    public Point getChickenStart() {
+        int i = 0;
+
+        for (char c : map) {
+            if (c == 'C') {
+                return new Point(i % ChickensRevenge.MAP_SIZE, (int) Math.ceil(i / ChickensRevenge.MAP_SIZE));
+            }
+
+            i++;
+        }
+
+        return null;
+    }
+
+    public ArrayList<Point> getFoxesStart() {
+        int i = 0;
+        ArrayList<Point> foxesStarts = new ArrayList<Point>();
+
+        for (char c : map) {
+            if (c == 'F') {
+                foxesStarts.add(new Point(i % ChickensRevenge.MAP_SIZE, (int) Math.ceil(i / ChickensRevenge.MAP_SIZE)));
+            }
+
+            i++;
+        }
+
+        return foxesStarts;
+    }
+
+    public char getValueAt(int x, int y) {
+        return map[y * ChickensRevenge.MAP_SIZE + x];
+    }
+
+    private void setValueAt(int x, int y, char value) {
+        map[y * ChickensRevenge.MAP_SIZE + x] = value;
+    }
+
+    public void pushBox(int x, int y, Direction direction) {
+        switch (direction) {
+            case LEFT:
+                if (getValueAt(x - 1, y) == BOX_VALUE) pushBox(x - 1, y, Direction.LEFT);
+                setValueAt(x - 1, y, BOX_VALUE);
+                setValueAt(x, y, EMPTY_VALUE);
+                break;
+            case RIGHT:
+                if (getValueAt(x + 1, y) == BOX_VALUE) pushBox(x + 1, y, Direction.RIGHT);
+                setValueAt(x + 1, y, BOX_VALUE);
+                setValueAt(x, y, EMPTY_VALUE);
+                break;
+            case DOWN:
+                if (getValueAt(x, y + 1) == BOX_VALUE) pushBox(x, y + 1, Direction.DOWN);
+                setValueAt(x, y + 1, BOX_VALUE);
+                setValueAt(x, y, EMPTY_VALUE);
+                break;
+            case UP:
+                if (getValueAt(x, y - 1) == BOX_VALUE) pushBox(x, y - 1, Direction.UP);
+                setValueAt(x, y - 1, BOX_VALUE);
+                setValueAt(x, y, EMPTY_VALUE);
+                break;
         }
     }
 
