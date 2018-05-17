@@ -26,7 +26,7 @@ public class GameScreen extends abstractGameScreen {
     private GameState gameState = GameState.PLAYING;
 
     // Map initialisation (Level 1)
-    private int level = 1;
+    private int level = 3;
     private Level map;
 
     private Chicken        chicken;
