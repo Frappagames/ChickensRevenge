@@ -21,16 +21,19 @@ public class Fox extends AbstractCharacter {
         Point newLocation = getFoxPath(chickenLocation, map, foxes);
 
         // Le renard mange la poule ?
-        if (newLocation == chickenLocation) {
+        if (newLocation.equals(chickenLocation)) {
             return GameState.LOST;
 
         // Le renard est bloquer ?
-        } else if (newLocation == getFoxPosition()) {
+        } else if (newLocation.equals(getFoxPosition())) {
+            this.setAlive(false);
+
             return GameState.WIN;
 
         // Si le renard bouge
         } else {
             setFoxPosition(newLocation);
+            this.setAlive(true);
 
             return GameState.MOVE;
         }

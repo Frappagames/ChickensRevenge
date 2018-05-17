@@ -82,9 +82,17 @@ public class GameScreen extends abstractGameScreen {
             // Si le renard n'a pas bougé depuis un temps supérieur au délais voullu (1s), on le fait bouger
             if (elapsedTime >= MOVEMENT_DELAY) {
                 elapsedTime = 0;
-                for (Fox fox : foxes) {
-                    if (fox.moveFox(chicken.getFoxPosition(), map, foxes) != Fox.GameState.MOVE) {
 
+                this.gameState = GameState.GAME_WIN;
+
+                for (Fox fox : foxes) {
+                    Fox.GameState foxState = fox.moveFox(chicken.getFoxPosition(), map, foxes);
+                    if (foxState == Fox.GameState.LOST) {
+                        this.gameState = GameState.GAME_LOST;
+                        chicken.setAlive(false);
+                        break;
+                    } else if (foxState == Fox.GameState.MOVE) {
+                        this.gameState = GameState.PLAYING;
                     }
                 }
             }
@@ -178,13 +186,13 @@ public class GameScreen extends abstractGameScreen {
         // Draw map tiles
         map.draw(game.batch);
 
-        // Draw chicken
-        chicken.draw(game.batch);
-
         // Draw Foxes
         for (Fox fox : foxes) {
             fox.draw(game.batch);
         }
+
+        // Draw chicken
+        chicken.draw(game.batch);
 
         if (gameState == GameState.GAME_WIN) {
             Assets.genericFont.draw(game.batch, "YOU WIN !!!", 80, 100);
