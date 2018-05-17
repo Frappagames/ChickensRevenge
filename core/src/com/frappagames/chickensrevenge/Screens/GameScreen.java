@@ -83,7 +83,7 @@ public class GameScreen extends abstractGameScreen {
             if (elapsedTime >= MOVEMENT_DELAY) {
                 elapsedTime = 0;
                 for (Fox fox : foxes) {
-                    if (fox.moveFox(chicken.getFoxPosition(), map) != Fox.GameState.MOVE) {
+                    if (fox.moveFox(chicken.getFoxPosition(), map, foxes) != Fox.GameState.MOVE) {
 
                     }
                 }

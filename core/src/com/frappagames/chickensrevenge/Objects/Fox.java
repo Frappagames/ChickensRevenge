@@ -5,6 +5,7 @@ import com.frappagames.chickensrevenge.Tools.Assets;
 import com.frappagames.chickensrevenge.Tools.Level;
 
 import java.awt.Point;
+import java.util.ArrayList;
 
 public class Fox extends AbstractCharacter {
     public enum GameState { LOST, WIN, MOVE }
@@ -16,8 +17,8 @@ public class Fox extends AbstractCharacter {
     }
 
     // Déplacement du renard
-    public GameState moveFox(Point chickenLocation, Level map) {
-        Point newLocation = getFoxPath(chickenLocation, map);
+    public GameState moveFox(Point chickenLocation, Level map, ArrayList<Fox> foxes) {
+        Point newLocation = getFoxPath(chickenLocation, map, foxes);
 
         // Le renard mange la poule ?
         if (newLocation == chickenLocation) {
@@ -35,15 +36,25 @@ public class Fox extends AbstractCharacter {
         }
     }
 
+    private boolean hasFoxThere(int x, int y, ArrayList<Fox> foxes) {
+        for (Fox fox : foxes) {
+            if (fox.getFoxPosition().getX() == x && fox.getFoxPosition().getY() == y) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     // Calcul du chemin à prendre (cacul basique regardant uniquement les cases autour du renard)
-    private Point getFoxPath(Point chickenPosition, Level map)
+    private Point getFoxPath(Point chickenPosition, Level map, ArrayList<Fox> foxes)
     {
         double bestValue = 1000;
         double currentValue;
         Point bestPosition = foxPosition;
 
         // N
-        if (foxPosition.y > 0 && map.getValueAt(foxPosition.x, foxPosition.y - 1) == Level.EMPTY_VALUE) {
+        if (foxPosition.y > 0 && map.getValueAt(foxPosition.x, foxPosition.y - 1) == Level.EMPTY_VALUE && !hasFoxThere(foxPosition.x, foxPosition.y - 1, foxes)) {
             currentValue = chickenPosition.distance(foxPosition.x, foxPosition.y - 1);
 
             if (currentValue < bestValue) {
@@ -53,7 +64,7 @@ public class Fox extends AbstractCharacter {
         }
 
         // E
-        if (foxPosition.x < ChickensRevenge.MAP_SIZE && map.getValueAt(foxPosition.x + 1, foxPosition.y) == Level.EMPTY_VALUE) {
+        if (foxPosition.x < ChickensRevenge.MAP_SIZE && map.getValueAt(foxPosition.x + 1, foxPosition.y) == Level.EMPTY_VALUE && !hasFoxThere(foxPosition.x + 1, foxPosition.y, foxes)) {
             currentValue = chickenPosition.distance(foxPosition.x + 1, foxPosition.y);
 
             if (currentValue < bestValue) {
@@ -63,7 +74,7 @@ public class Fox extends AbstractCharacter {
         }
 
         // S
-        if (foxPosition.y < ChickensRevenge.MAP_SIZE && map.getValueAt(foxPosition.x, foxPosition.y + 1) == Level.EMPTY_VALUE) {
+        if (foxPosition.y < ChickensRevenge.MAP_SIZE && map.getValueAt(foxPosition.x, foxPosition.y + 1) == Level.EMPTY_VALUE && !hasFoxThere(foxPosition.x, foxPosition.y + 1, foxes)) {
             currentValue = chickenPosition.distance(foxPosition.x, foxPosition.y + 1);
 
             if (currentValue < bestValue) {
@@ -73,7 +84,7 @@ public class Fox extends AbstractCharacter {
         }
 
         // O
-        if (foxPosition.x > 0 && map.getValueAt(foxPosition.x - 1, foxPosition.y) == Level.EMPTY_VALUE) {
+        if (foxPosition.x > 0 && map.getValueAt(foxPosition.x - 1, foxPosition.y) == Level.EMPTY_VALUE && !hasFoxThere(foxPosition.x - 1, foxPosition.y, foxes)) {
             currentValue = chickenPosition.distance(foxPosition.x - 1, foxPosition.y);
 
             if (currentValue < bestValue) {
@@ -83,7 +94,7 @@ public class Fox extends AbstractCharacter {
         }
 
         // NE
-        if (foxPosition.x < ChickensRevenge.MAP_SIZE && foxPosition.y > 0 && map.getValueAt(foxPosition.x + 1, foxPosition.y - 1) == Level.EMPTY_VALUE) {
+        if (foxPosition.x < ChickensRevenge.MAP_SIZE && foxPosition.y > 0 && map.getValueAt(foxPosition.x + 1, foxPosition.y - 1) == Level.EMPTY_VALUE && !hasFoxThere(foxPosition.x + 1, foxPosition.y - 1, foxes)) {
             currentValue = chickenPosition.distance(foxPosition.x + 1, foxPosition.y - 1);
 
             if (currentValue < bestValue) {
@@ -93,7 +104,7 @@ public class Fox extends AbstractCharacter {
         }
 
         // SE
-        if (foxPosition.x < ChickensRevenge.MAP_SIZE && foxPosition.y < ChickensRevenge.MAP_SIZE && map.getValueAt(foxPosition.x + 1, foxPosition.y + 1) == Level.EMPTY_VALUE) {
+        if (foxPosition.x < ChickensRevenge.MAP_SIZE && foxPosition.y < ChickensRevenge.MAP_SIZE && map.getValueAt(foxPosition.x + 1, foxPosition.y + 1) == Level.EMPTY_VALUE && !hasFoxThere(foxPosition.x + 1, foxPosition.y + 1, foxes)) {
             currentValue = chickenPosition.distance(foxPosition.x + 1, foxPosition.y + 1);
 
             if (currentValue < bestValue) {
@@ -103,7 +114,7 @@ public class Fox extends AbstractCharacter {
         }
 
         // SO
-        if (foxPosition.x > 0 && foxPosition.y < ChickensRevenge.MAP_SIZE && map.getValueAt(foxPosition.x - 1, foxPosition.y + 1) == Level.EMPTY_VALUE) {
+        if (foxPosition.x > 0 && foxPosition.y < ChickensRevenge.MAP_SIZE && map.getValueAt(foxPosition.x - 1, foxPosition.y + 1) == Level.EMPTY_VALUE && !hasFoxThere(foxPosition.x - 1, foxPosition.y + 1, foxes)) {
             currentValue = chickenPosition.distance(foxPosition.x - 1, foxPosition.y + 1);
 
             if (currentValue < bestValue) {
@@ -113,7 +124,7 @@ public class Fox extends AbstractCharacter {
         }
 
         // NO
-        if (foxPosition.x > 0 && foxPosition.y > 0 && map.getValueAt(foxPosition.x - 1, foxPosition.y - 1) == Level.EMPTY_VALUE) {
+        if (foxPosition.x > 0 && foxPosition.y > 0 && map.getValueAt(foxPosition.x - 1, foxPosition.y - 1) == Level.EMPTY_VALUE && !hasFoxThere(foxPosition.x - 1, foxPosition.y - 1, foxes)) {
             currentValue = chickenPosition.distance(foxPosition.x - 1, foxPosition.y - 1);
 
             if (currentValue < bestValue) {
