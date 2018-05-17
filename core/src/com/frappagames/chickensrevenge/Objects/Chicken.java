@@ -15,16 +15,16 @@ public class Chicken extends AbstractCharacter {
     public void move(ChickensRevenge.Direction direction) {
         switch (direction) {
             case LEFT:
-                this.position.x -= 1;
+                this.foxPosition.x -= 1;
                 break;
             case RIGHT:
-                this.position.x += 1;
+                this.foxPosition.x += 1;
                 break;
             case UP:
-                this.position.y -= 1;
+                this.foxPosition.y -= 1;
                 break;
             case DOWN:
-                this.position.y += 1;
+                this.foxPosition.y += 1;
                 break;
         }
     }

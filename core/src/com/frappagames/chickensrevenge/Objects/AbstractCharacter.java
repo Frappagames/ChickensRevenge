@@ -11,21 +11,21 @@ import java.awt.Point;
  */
 
 public abstract class AbstractCharacter {
-    Point   position;
-    boolean alive;
+    Point         foxPosition;
+    boolean       alive;
     TextureRegion alivePicture, diedPicture, picture;
 
     AbstractCharacter(Point position) {
-        this.setPosition(position);
+        this.setFoxPosition(position);
         this.setAlive(true);
     }
 
-    public Point getPosition() {
-        return position;
+    public Point getFoxPosition() {
+        return foxPosition;
     }
 
-    public void setPosition(Point position) {
-        this.position = position;
+    public void setFoxPosition(Point foxPosition) {
+        this.foxPosition = foxPosition;
     }
 
     public boolean isAlive() {
@@ -39,8 +39,8 @@ public abstract class AbstractCharacter {
     public void draw(Batch batch) {
         batch.draw(
             alive ? alivePicture : diedPicture,
-            position.x * ChickensRevenge.TILE_SIZE,
-            (ChickensRevenge.MAP_SIZE - 1 - position.y) * ChickensRevenge.TILE_SIZE
+            foxPosition.x * ChickensRevenge.TILE_SIZE,
+            (ChickensRevenge.MAP_SIZE - 1 - foxPosition.y) * ChickensRevenge.TILE_SIZE
         );
     }
 }

@@ -83,38 +83,38 @@ public class GameScreen extends abstractGameScreen {
             if (elapsedTime >= MOVEMENT_DELAY) {
                 elapsedTime = 0;
                 for (Fox fox : foxes) {
-                    if (fox.moveFox(chicken.getPosition(), map) != Fox.GameState.MOVE) {
+                    if (fox.moveFox(chicken.getFoxPosition(), map) != Fox.GameState.MOVE) {
 
                     }
                 }
             }
 
             // Gestion du clavier
-            if (Gdx.input.isKeyJustPressed(Input.Keys.DOWN) && chicken.getPosition().y > 0) {
-                if (canMove(chicken.getPosition().x, chicken.getPosition().y, ChickensRevenge.Direction.DOWN)) {
-                    if (map.getValueAt(chicken.getPosition().x, chicken.getPosition().y + 1) == Level.BOX_VALUE) {
-                        map.pushBox(chicken.getPosition().x, chicken.getPosition().y + 1, Level.Direction.DOWN);
+            if (Gdx.input.isKeyJustPressed(Input.Keys.DOWN) && chicken.getFoxPosition().y > 0) {
+                if (canMove(chicken.getFoxPosition().x, chicken.getFoxPosition().y, ChickensRevenge.Direction.DOWN)) {
+                    if (map.getValueAt(chicken.getFoxPosition().x, chicken.getFoxPosition().y + 1) == Level.BOX_VALUE) {
+                        map.pushBox(chicken.getFoxPosition().x, chicken.getFoxPosition().y + 1, Level.Direction.DOWN);
                     }
                     chicken.move(ChickensRevenge.Direction.DOWN);
                 }
-            } else if (Gdx.input.isKeyJustPressed(Input.Keys.UP) && chicken.getPosition().y < ChickensRevenge.MAP_SIZE - 1) {
-                if (canMove(chicken.getPosition().x, chicken.getPosition().y, ChickensRevenge.Direction.UP)) {
-                    if (map.getValueAt(chicken.getPosition().x, chicken.getPosition().y - 1) == Level.BOX_VALUE) {
-                        map.pushBox(chicken.getPosition().x, chicken.getPosition().y - 1, Level.Direction.UP);
+            } else if (Gdx.input.isKeyJustPressed(Input.Keys.UP) && chicken.getFoxPosition().y < ChickensRevenge.MAP_SIZE - 1) {
+                if (canMove(chicken.getFoxPosition().x, chicken.getFoxPosition().y, ChickensRevenge.Direction.UP)) {
+                    if (map.getValueAt(chicken.getFoxPosition().x, chicken.getFoxPosition().y - 1) == Level.BOX_VALUE) {
+                        map.pushBox(chicken.getFoxPosition().x, chicken.getFoxPosition().y - 1, Level.Direction.UP);
                     }
                     chicken.move(ChickensRevenge.Direction.UP);
                 }
-            } else if (Gdx.input.isKeyJustPressed(Input.Keys.LEFT) && chicken.getPosition().x > 0) {
-                if (canMove(chicken.getPosition().x, chicken.getPosition().y, ChickensRevenge.Direction.LEFT)) {
-                    if (map.getValueAt(chicken.getPosition().x - 1, chicken.getPosition().y) == Level.BOX_VALUE) {
-                        map.pushBox(chicken.getPosition().x - 1, chicken.getPosition().y, Level.Direction.LEFT);
+            } else if (Gdx.input.isKeyJustPressed(Input.Keys.LEFT) && chicken.getFoxPosition().x > 0) {
+                if (canMove(chicken.getFoxPosition().x, chicken.getFoxPosition().y, ChickensRevenge.Direction.LEFT)) {
+                    if (map.getValueAt(chicken.getFoxPosition().x - 1, chicken.getFoxPosition().y) == Level.BOX_VALUE) {
+                        map.pushBox(chicken.getFoxPosition().x - 1, chicken.getFoxPosition().y, Level.Direction.LEFT);
                     }
                     chicken.move(ChickensRevenge.Direction.LEFT);
                 }
-            } else if (Gdx.input.isKeyJustPressed(Input.Keys.RIGHT) && chicken.getPosition().x < ChickensRevenge.MAP_SIZE - 1) {
-                if (canMove(chicken.getPosition().x, chicken.getPosition().y, ChickensRevenge.Direction.RIGHT)) {
-                    if (map.getValueAt(chicken.getPosition().x + 1, chicken.getPosition().y) == Level.BOX_VALUE) {
-                        map.pushBox(chicken.getPosition().x + 1, chicken.getPosition().y, Level.Direction.RIGHT);
+            } else if (Gdx.input.isKeyJustPressed(Input.Keys.RIGHT) && chicken.getFoxPosition().x < ChickensRevenge.MAP_SIZE - 1) {
+                if (canMove(chicken.getFoxPosition().x, chicken.getFoxPosition().y, ChickensRevenge.Direction.RIGHT)) {
+                    if (map.getValueAt(chicken.getFoxPosition().x + 1, chicken.getFoxPosition().y) == Level.BOX_VALUE) {
+                        map.pushBox(chicken.getFoxPosition().x + 1, chicken.getFoxPosition().y, Level.Direction.RIGHT);
                     }
                     chicken.move(ChickensRevenge.Direction.RIGHT);
                 }
@@ -163,7 +163,7 @@ public class GameScreen extends abstractGameScreen {
 
     private boolean isThereAFoxHere(int x, int y) {
         for (Fox fox : foxes) {
-            if (fox.getPosition().x == x && fox.getPosition().y == y) {
+            if (fox.getFoxPosition().x == x && fox.getFoxPosition().y == y) {
                 return true;
             }
         }
