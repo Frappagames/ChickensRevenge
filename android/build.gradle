@@ -1,6 +1,6 @@
 android {
-    buildToolsVersion "26.0.1"
-    compileSdkVersion 26
+    buildToolsVersion "28.0.3"
+    compileSdkVersion 28
     sourceSets {
         main {
             manifest.srcFile 'AndroidManifest.xml'
@@ -19,8 +19,8 @@ android {
     }
     defaultConfig {
         applicationId "com.frappagames.chickensrevenge"
-        minSdkVersion 8
-        targetSdkVersion 26
+        minSdkVersion 19
+        targetSdkVersion 28
     }
 }
 
@@ -85,8 +85,8 @@ eclipse {
     }
 
     jdt {
-        sourceCompatibility = 1.6
-        targetCompatibility = 1.6
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
     }
 
     classpath {
